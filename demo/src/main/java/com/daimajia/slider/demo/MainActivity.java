@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+    mDemoSlider = findViewById(R.id.slider);
 
     HashMap<String, String> url_maps = new HashMap<String, String>();
     url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
     mDemoSlider.setCustomAnimation(new DescriptionAnimation());
     mDemoSlider.setDuration(4000);
+    mDemoSlider.stopAutoCycle();
     mDemoSlider.addOnPageChangeListener(this);
-    ListView l = (ListView) findViewById(R.id.transformers);
+    ListView l = findViewById(R.id.transformers);
     l.setAdapter(new TransformerAdapter(this));
     l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
